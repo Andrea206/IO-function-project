@@ -244,7 +244,11 @@ public class register
         String hostname = "";
         try
         {
-            Process p = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", "hostname"});
+            //Old
+            //Process p = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", "hostname"});
+            //New
+            Process p = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", "uname -a | awk {'print $2'}"});
+
             BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()));
             hostname = is.readLine();
             p.destroy();

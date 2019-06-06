@@ -10,10 +10,10 @@ optype=$2
 numfiles=$3
 numfileops=$4
 
-#numfiles=3000
-#fileops=W
-#numfileops=2200
-#optype=B
+# numfiles=3000
+# fileops=W
+# numfileops=2200
+# optype=B
 
 
 callservice(){
@@ -24,17 +24,20 @@ callservice(){
 	#time output=`curl -s -H "Content-Type: application/json" -X POST -d  $json https://4k8a0ku5g5.execute-api.us-east-1.amazonaws.com/calcs_test`
 	##time output=`curl -s -H "Content-Type: application/json" -X POST -d  $json {INSERT API GATEWAY URL HERE}`
 
-	##echo ""
-	#echo "CURL RESULT:"
+	echo ""
+	echo "CURL RESULT:"
 	#echo $output
 	##echo ""
 	##echo ""
 	#exit
 
-	echo "Invoking Lambda function using AWS CLI"
-	time output=`aws lambda invoke --invocation-type RequestResponse --function-name calcs --region us-east-1 --payload $json /dev/stdout | head -n 1 | head -c -2 ; echo`
-	#aws lambda invoke --invocation-type RequestResponse --function-name logtest --region us-east-1 --payload $json /dev/stdout 
-	echo "AWS CLI RESULT:"
+	##echo "Invoking Lambda function using AWS CLI"
+
+	## Was not able to use aws cli successfully, had to use REST call ##
+	#time output=`aws lambda invoke --invocation-type RequestResponse --function-name calcs --region us-west-2 --payload $json /dev/stdout | head -n 1 | head -c -2 ; echo`
+	time output=`curl -s -H "Content-Type: application/json" -X POST -d  $json https://f3b7si0tr5.execute-api.us-west-2.amazonaws.com/IO_dev`
+	#aws lambda invoke --invocation-type RequestResponse --function-name logtest --region us-east-1 --payload $json /dev/stdout
+	##echo "AWS CLI RESULT:"
 	echo $output
 	echo ""
 }
@@ -45,10 +48,8 @@ loop(){
 	for (( i=1 ; i <= $number; i++ ))
 	do
 	echo "Round: " $i
-		callservice 
+		callservice
 	done
 }
 
 loop | tee -a ~/output.txt
-
-
