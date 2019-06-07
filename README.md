@@ -1,16 +1,16 @@
 #  File I/O Lambda Function:
 Creates, deletes, updates a large number of files.
 
-### I/O arguments
-“numfiles”	# of Files Parameter
+##  I/O arguments
+**“numfiles”**	# of Files Parameter
 
-“fileop” 	Type of operations parameter: SR-sequential-read, RR-random-read, TR- Static Read,  W-write
+**“fileop”** 	Type of operations parameter: SR-sequential-read, RR-random-read, TR- Static Read,  W-write
 		
-“numfileops”	Number of ops to perform against a file.  An op is reading or writing a byte or line to a file
+**“numfileops”**	Number of ops to perform against a file.  An op is reading or writing a byte or line to a file
 
- “optype”	L-read/write lines (random 80-char ASCII string), B-read/write bytes
+ **“optype”**	L-read/write lines (random 80-char ASCII string), B-read/write bytes
 
-“nodelete”	true/false - indicates whether files created should be deleted at the end of the Lambda function
+**“nodelete”**	true/false - indicates whether files created should be deleted at the end of the Lambda function
 
 **Input JSON**
 ```javascript
@@ -25,9 +25,9 @@ Creates, deletes, updates a large number of files.
 
 
 
-# I/O function utilizes the faas_inspector
+# I/O function utilizes the faas_inspector:
 
-# faas_inspector
+## faas_inspector
 
 This project provides coding templates to support tracing FaaS function server infrastructure for code deployments.
 A generic Hello World function is provided for different FaaS platform/language combinations as a starting point to write infrastructure traceable FaaS functions to enable tracing code containers and hosts (VMs) created by FaaS platform providers for hosting FaaS functions.  This information can help verify the state of infrastructure (COLD vs. WARM) to understand performance results, and help preserve infrastructure for better FaaS performance.
