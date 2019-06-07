@@ -1,3 +1,32 @@
+#  File I/O Lambda Function:
+Creates, deletes, updates a large number of files.
+
+### I/O arguments
+“numfiles”	# of Files Parameter
+
+“fileop” 	Type of operations parameter: SR-sequential-read, RR-random-read, TR- Static Read,  W-write
+		
+“numfileops”	Number of ops to perform against a file.  An op is reading or writing a byte or line to a file
+
+ “optype”	L-read/write lines (random 80-char ASCII string), B-read/write bytes
+
+“nodelete”	true/false - indicates whether files created should be deleted at the end of the Lambda function
+
+**Input JSON**
+```javascript
+         		{
+	"numfiles": 100,
+	"fileops": "SR",
+	“numfileops”: 1000,
+	“optype”: “L”,
+	“nodelete”: true
+}
+```
+
+
+
+# I/O function utilizes the faas_inspector
+
 # faas_inspector
 
 This project provides coding templates to support tracing FaaS function server infrastructure for code deployments.
