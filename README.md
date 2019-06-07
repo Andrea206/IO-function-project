@@ -23,9 +23,10 @@ Creates, deletes, updates a large number of files.
 }
 ```
 
+<br/><br/>
 
+# I/O function utilizes the faas_inspector:<br/><br/>
 
-# I/O function utilizes the faas_inspector:
 
 ## faas_inspector
 
