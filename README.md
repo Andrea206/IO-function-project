@@ -1,5 +1,10 @@
 #  File I/O Lambda Function:
 Creates, deletes, updates a large number of files.
+<br/>
+
+###### written by [Ailian Li](https://github.com/ailian16) 
+###### Cloud Computing Research at University of Washington - Tacoma, lead by [Dr. Wes Lloyd](https://github.com/wlloyduw)
+<br/>
 
 ##  I/O arguments
 **“numfiles”**	# of Files Parameter
